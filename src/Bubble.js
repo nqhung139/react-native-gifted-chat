@@ -37,33 +37,33 @@ export default class Bubble extends React.Component {
 
   renderMessageText() {
     if (this.props.currentMessage.text) {
-      const {containerStyle, wrapperStyle, ...messageTextProps} = this.props;
+      const { containerStyle, wrapperStyle, ...messageTextProps } = this.props;
       if (this.props.renderMessageText) {
         return this.props.renderMessageText(messageTextProps);
       }
-      return <MessageText {...messageTextProps}/>;
+      return <MessageText {...messageTextProps} />;
     }
     return null;
   }
 
   renderMessageImage() {
     if (this.props.currentMessage.image) {
-      const {containerStyle, wrapperStyle, ...messageImageProps} = this.props;
+      const { containerStyle, wrapperStyle, ...messageImageProps } = this.props;
       if (this.props.renderMessageImage) {
         return this.props.renderMessageImage(messageImageProps);
       }
-      return <MessageImage {...messageImageProps}/>;
+      return <MessageImage {...messageImageProps} />;
     }
     return null;
   }
 
   renderTicks() {
-    const {currentMessage} = this.props;
+    const { currentMessage } = this.props;
     if (this.props.renderTicks) {
-        return this.props.renderTicks(currentMessage);
+      return this.props.renderTicks(currentMessage);
     }
     if (currentMessage.user._id !== this.props.user._id) {
-        return;
+      return;
     }
     if (currentMessage.sent || currentMessage.received) {
       return (
@@ -77,11 +77,11 @@ export default class Bubble extends React.Component {
 
   renderTime() {
     if (this.props.currentMessage.createdAt) {
-      const {containerStyle, wrapperStyle, ...timeProps} = this.props;
+      const { containerStyle, wrapperStyle, ...timeProps } = this.props;
       if (this.props.renderTime) {
         return this.props.renderTime(timeProps);
       }
-      return <Time {...timeProps}/>;
+      return <Time {...timeProps} />;
     }
     return null;
   }
@@ -107,13 +107,13 @@ export default class Bubble extends React.Component {
           options,
           cancelButtonIndex,
         },
-        (buttonIndex) => {
-          switch (buttonIndex) {
-            case 0:
-              Clipboard.setString(this.props.currentMessage.text);
-              break;
-          }
-        });
+          (buttonIndex) => {
+            switch (buttonIndex) {
+              case 0:
+                Clipboard.setString(this.props.currentMessage.text);
+                break;
+            }
+          });
       }
     }
   }
@@ -151,7 +151,7 @@ const styles = {
     },
     wrapper: {
       borderRadius: 15,
-      backgroundColor: '#f0f0f0',
+      backgroundColor: '#fff',
       marginRight: 60,
       minHeight: 20,
       justifyContent: 'flex-end',
